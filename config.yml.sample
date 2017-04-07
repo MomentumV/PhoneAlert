@@ -1,0 +1,18 @@
+twilio_set: #get your app details from https://www.twilio.com/console
+    account: 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    token: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+    tophone: '1XXXXXXXXXX'          #must be verified number during trial restrictions
+    sms_notification: '1XXXXXXXXXX' #must be verified number during trial restrictions
+    fromphone: '1XXXXXXXXXX'        #use a from number that is purchased from twilio
+    url: 'http://timlets.com/holdmusic?Bucket=com.twilio.music.ambient' 
+
+twitter_set: #get details from https://apps.twitter.com
+    consumer_key: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+    access_token: '000000000-xxXXXXXxxxXXXXxxxxxxxxxxxxxxxxx'
+    access_secret: 'xxXXXXxxx' 
+
+search_set:
+    user: [] #list of user id strings (these are not fixed length) example:['0000000'] use get_ids.py to find id from @handle
+    track: [] #list of lowercase search terms to filter the users tweets
+    
