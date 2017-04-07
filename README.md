@@ -1,7 +1,7 @@
 # PhoneAlert README #
 
  ## Setup instructions ##
-   - You will need to creat both a twitter app and a Twilio free user trial
+   - You will need to create both a twitter app and a Twilio free user trial
    - The api keys and search terms go into config.yml.sample, save it as config.yml.
 
  ## helpful hints ##
