@@ -7,5 +7,5 @@
 
  ## helpful hints ##
    - get_ids.py is a little script that returns the twitter user id from an entered twitter @handle
-   - sms notification is used when your streaming app is rate limited (code 420... chill out; seriously, that's what twitter calls it. Plan to only start ~2 streams per day; save some data and work with that for testing.
+   - sms notification is used when your streaming app is rate limited (code 420... chill out; seriously, that's what twitter calls it). Plan to only start ~2 streams per day; save some data and work with that for testing.
 
