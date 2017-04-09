@@ -82,14 +82,5 @@ if __name__ == '__main__':
     auth = OAuthHandler(consumer_key, consumer_secret)
     auth.set_access_token(access_token, access_token_secret)
     stream = Stream(auth, l)
-#    api = tweepy.API(auth)
-#    user = api.get_user(screen_name = 'MordecaiV')
-#    print(user.id)
-#    print(dir(user))
-
-    #This line filter Twitter Streams to capture data by the keywords: 'python', 'javascript', 'ruby'
+    #This line filter Twitter Streams to capture tweets from the user ids listed in ulist, which are pulled in from the config file. use the get_ids.py helper script to extract user ids from @handles
     stream.filter(follow=ulist,async=True)
-    #stream.filter(follow=u, async=True)
-#for section,d in cfg.items():
-#	for k,v in d.items():
-#		print k+': '+v
