@@ -40,6 +40,10 @@ client = Client(account,token)
 ulist=searchdict['user']
 tlist=searchdict['track']
 
+#define message strings
+errtextmess = 'error code: {0}'
+ratelimitmess = '420 error! chill out, man! we are down.'
+
 #define a basic listener
 class CallListener(StreamListener):
 
@@ -60,20 +64,20 @@ class CallListener(StreamListener):
         for word in tlist:
             if word in tweettext.lower():
                 print 'keyword '+word+' found'
-                trigger = 1
+                trigger += 1
         if trigger > 0:
             #print 'make call to '+tophone+' from '+fromphone
             call = client.calls.create(to=tophone, from_=fromphone, url=callurl)
-        if trigger == 0:
+        elif trigger == 0:
             print 'no keywords matched; no call made'
         return True
 
     def on_error(self, code):
         if code == 420:
-            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body='420 error, we are down!') 
+            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=ratelimitmess) 
             return False
         else:
-            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body='error code: '+status)
+            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=textmess.format(code))
             return False
 if __name__ == '__main__':
 
