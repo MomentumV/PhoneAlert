@@ -14,5 +14,5 @@ twitter_set: #get details from https://apps.twitter.com
 
 search_set:
     user: [] #list of user id strings (these are not fixed length) example:['0000000'] use get_ids.py to find id from @handle
-    track: [] #list of lowercase search terms to filter the users tweets
-    
+    track: [] #list of lowercase search strings  to filter the users tweets
+    not:  [] #list of excluded strings    

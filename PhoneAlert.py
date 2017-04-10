@@ -37,8 +37,9 @@ callurl = twildict['url']
 client = Client(account,token)
 
 #store search parameters
-ulist=searchdict['user']
-tlist=searchdict['track']
+ulist = searchdict['user']
+tlist = searchdict['track']
+exclude = searchdict['not']
 
 #define message strings
 errtextmess = 'error code: {0}'
@@ -63,13 +64,22 @@ class CallListener(StreamListener):
         trigger = 0
         for word in tlist:
             if word in tweettext.lower():
-                print 'keyword '+word+' found'
+                print 'keyword {0} found'.format(word)
                 trigger += 1
+        for word in exclude:
+            if word in tweettext.lower():
+                print 'excluded string {0} found'.format(word)
+                trigger = -1
         if trigger > 0:
             #print 'make call to '+tophone+' from '+fromphone
+            #make phone call first
             call = client.calls.create(to=tophone, from_=fromphone, url=callurl)
+            #send text message containg the twitter message
+            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=tweettext) 
         elif trigger == 0:
             print 'no keywords matched; no call made'
+        elif trigger < 0:
+            print 'excluded strings found; no call made'
         return True
 
     def on_error(self, code):
