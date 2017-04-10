@@ -29,7 +29,7 @@ token = twildict['token']
 
 #store call details from config in variables
 tophone = twildict['tophone']
-smsphone = twildict['sms_notification']
+errorphone = twildict['err_notification']
 fromphone = twildict['fromphone']
 callurl = twildict['url']
 
@@ -74,8 +74,8 @@ class CallListener(StreamListener):
             #print 'make call to '+tophone+' from '+fromphone
             #make phone call first
             call = client.calls.create(to=tophone, from_=fromphone, url=callurl)
-            #send text message containg the twitter message
-            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=tweettext) 
+            #send text message containg the twitter message to tophone
+            message = client.api.account.messages.create(to=tophone,from_=fromphone,body=tweettext) 
         elif trigger == 0:
             print 'no keywords matched; no call made'
         elif trigger < 0:
@@ -84,10 +84,10 @@ class CallListener(StreamListener):
 
     def on_error(self, code):
         if code == 420:
-            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=ratelimitmess) 
+            message = client.api.account.messages.create(to=errorphone,from_=fromphone,body=ratelimitmess) 
             return False
         else:
-            message = client.api.account.messages.create(to=smsphone,from_=fromphone,body=textmess.format(code))
+            message = client.api.account.messages.create(to=errorphone,from_=fromphone,body=textmess.format(code))
             return False
 if __name__ == '__main__':
 

@@ -2,7 +2,7 @@ twilio_set: #get your app details from https://www.twilio.com/console
     account: 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     token: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
     tophone: '1XXXXXXXXXX'          #must be verified number during trial restrictions
-    sms_notification: '1XXXXXXXXXX' #must be verified number during trial restrictions
+    err_notification: '1XXXXXXXXXX' #must be verified number during trial restrictions
     fromphone: '1XXXXXXXXXX'        #use a from number that is purchased from twilio
     url: 'http://timlets.com/holdmusic?Bucket=com.twilio.music.ambient' 
 
