@@ -61,7 +61,7 @@ class CallListener(StreamListener):
             if word in tweettext.lower():
                 print 'keyword '+word+' found'
                 trigger = 1
-        if trigger == 1:
+        if trigger > 0:
             #print 'make call to '+tophone+' from '+fromphone
             call = client.calls.create(to=tophone, from_=fromphone, url=callurl)
         if trigger == 0:
