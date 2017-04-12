@@ -77,7 +77,7 @@ class CallListener(StreamListener):
             #send text message containg the twitter message to tophone
             message = client.api.account.messages.create(to=tophone,from_=fromphone,body=tweettext) 
             #save tweet as test data
-            with open('triggered_data.txt','w') as ou$
+            with open('triggered_data.txt','w') as outfile:
                 json.dump(jsondata,outfile)   
         elif trigger == 0:
             print 'no keywords matched; no call made'
