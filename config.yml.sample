@@ -1,16 +1,11 @@
-twilio_set: #get your app details from https://www.twilio.com/console
-    account: 'ACXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
-    token: 'XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+settings: #get your app details from https://www.twilio.com/console
     tophone: '1XXXXXXXXXX'          #must be verified number during trial restrictions
     err_notification: '1XXXXXXXXXX' #must be verified number during trial restrictions
     fromphone: '1XXXXXXXXXX'        #use a from number that is purchased from twilio
     url: 'http://timlets.com/holdmusic?Bucket=com.twilio.music.ambient' 
+    err_txt: 'error code: {0}'
+    rate_lim_txt: '420 error! chill out, man!'
 
-twitter_set: #get details from https://apps.twitter.com
-    consumer_key: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    consumer_secret: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
-    access_token: '000000000-xxXXXXXxxxXXXXxxxxxxxxxxxxxxxxx'
-    access_secret: 'xxXXXXxxx' 
 
 search_set:
     user: [] #list of user id strings (these are not fixed length) example:['0000000'] use get_ids.py to find id from @handle
